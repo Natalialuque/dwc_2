@@ -1,8 +1,8 @@
 <?php
 
- $login = $_POST["login"];
- $pass = $_POST["pass"];
+ $login = $_GET["login"];
+ $pass = $_GET["pass"];
 
- echo "Recibido login:" .$login."en el servidor.El password<br>".$pass.""
+ echo "Recibido login:" .$login." en el servidor.El password<br>".$pass.""
 
 ?>

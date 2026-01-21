@@ -1,0 +1,16 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "nombre": "Natalia",
+            "rol": "Desarrolladora",
+            "permisos": ["leer", "editar", "borrar"]
+        },
+        {
+            "id": 2,
+            "nombre": "Pepe",
+            "rol": "Administrador",
+            "permisos": ["leer", "editar"]
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usuarios>
+    <usuario id="1">
+        <nombre>Natalia</nombre>
+        <rol>Desarrolladora</rol>
+    </usuario>
+
+    <usuario id="2">
+        <nombre>Pepe</nombre>
+        <rol>Administrador</rol>
+    </usuario>
+</usuarios>
