@@ -76,10 +76,7 @@ document.getElementById("bErase").onclick = function() {
 }
 
 /************************************ */
-let info = document.getElementById("info");
-const login = document.getElementById("login");
-const pass = document.getElementById("pass");
-const prefColor = document.getElementById("prefColor");
+
 
 if (localStorage.length) {
 
