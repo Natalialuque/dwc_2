@@ -1,0 +1,135 @@
+
+:root {
+    --color-fondo: #f5f6f7;
+    --color-primario: #1f5651;
+    --color-secundario: #2c6e6e;
+    --color-acento: #bfa980;
+    --color-texto: #2a2a2a;
+    --color-tarjeta: #ffffff;
+    --color-borde: #d9d9d9;
+    --color-footer: #163035;
+    --fuente-principal: "Inter", "Segoe UI", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+main {
+    flex: 1;
+}
+
+/* HEADER */
+header {
+    background-color: var(--color-primario);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-bottom: 4px solid var(--color-acento);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* MENÚ */
+#enlaces {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    list-style: none;
+    margin: 2rem 0;
+}
+
+#enlaces li a {
+    display: block;
+    padding: 0.7rem 1.4rem;
+    background-color: var(--color-secundario);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+#enlaces li a:hover {
+    background-color: var(--color-primario);
+    transform: translateY(-2px);
+}
+
+/* TOTAL */
+#total {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primario);
+    margin-bottom: 2rem;
+
+    /* Fondo translúcido y ancho completo */
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: rgba(31, 86, 81, 0.08);
+    border-left: 6px solid var(--color-acento);
+    border-radius: 0;
+    text-align: left;
+}
+
+/* TARJETAS */
+ #tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1.8rem;
+}
+
+.tarjeta {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s ease;
+}
+
+.tarjeta:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tarjeta h2 {
+    font-size: 1.25rem;
+    color: var(--color-primario);
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+
+.tarjeta p {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+} 
+
+/* FOOTER */
+footer {
+    background-color: var(--color-footer);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    border-top: 3px solid var(--color-acento);
+}
