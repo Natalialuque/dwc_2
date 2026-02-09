@@ -1,22 +1,22 @@
 // let info = document.getElementById("info");
 
-// info.innerHTML="Hola mundo";
-// //al enlace le damos evento para que cuando lo pulsemos redirija
-// document.getElementById("leer").addEventListener("click",()=>{
-//     let xhr = new XMLHttpRequest();
+//  info.innerHTML="Hola mundo";
+ //al enlace le damos evento para que cuando lo pulsemos redirija
+ document.getElementById("leer").addEventListener("click",()=>{
+     let xhr = new XMLHttpRequest();
 
-//     xhr.onreadystatechange = function(){
-//         console.log("estado"+xhr.readyState+" .Nivel: "+xhr.status);
-//         if((xhr.readyState == 4) && (xhr.status==200)){
-//             //respuesta del server 
-//             document.getElementById("textoArea").value = xhr.responseText;
-//         }
-//     }
+     xhr.onreadystatechange = function(){
+         console.log("estado"+xhr.readyState+" .Nivel: "+xhr.status);
+         if((xhr.readyState == 4) && (xhr.status==200)){
+             //respuesta del server 
+             document.getElementById("textoArea").value = xhr.responseText;
+         }
+     }
 
-//     //esto establece la conexion con lo que queremos mostrar
-//     xhr.open("GET","http://localhost/DWC/tema07/Pruebas/server/hello.txt");
-//     xhr.send();
-// });
+     //esto establece la conexion con lo que queremos mostrar
+     xhr.open("GET","http://localhost/DWC/dwc_2/tema07/Pruebas/server/hello.txt");
+     xhr.send();
+ });
 
 
 /////////////////////////////////////////////////////////////
@@ -40,7 +40,9 @@
 
 //     //esto establece la conexion con lo que queremos mostrar
 //     //xhr.open("GET","http://localhost/DWC/tema07/Pruebas/server/hello.php?login=pepe&pass=1234");
-//     xhr.open("GET","http://localhost/DWC/tema07/Pruebas/server/alumnos.xml");
+        //xhr.open("POST","http://localhost/DWC/tema07/Pruebas/server/hello.php");
+//    
+        // xhr.open("GET","http://localhost/DWC/tema07/Pruebas/server/alumnos.xml");
 
 //     //ESTABLECER CABECERA AL ENVIAR DATOS ALWAYS
 //    // xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
@@ -59,34 +61,34 @@
 /**
  * FECTH
  */
-document.getElementById("leer").addEventListener("click",()=>{
+// document.getElementById("leer").addEventListener("click",()=>{
 
-    const resp=fetch("http://localhost/DWC/tema07/Pruebas/server/hello.php",{
-        //para hacer get quitamos el method, dejamos headers y el body entra en el url de arriba con un ?
+//     const resp=fetch("http://localhost/DWC/tema07/Pruebas/server/hello.php",{
+//         //para hacer get quitamos el method, dejamos headers y el body entra en el url de arriba con un ?
 
-        method:"POST",
-        headers:{'Content-Type': 'application/x-www-form-urlencoded'},
-        body:"usuario=Pepe&pass=1234"
-    });
+//         method:"POST",
+//         headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+//         body:"usuario=Pepe&pass=1234"
+//     });
 
-    resp.then(function(resp){
-        if(resp.ok){
-            info.innerHTML="Respuesta"+resp;
-            console.log(resp);
+//     resp.then(function(resp){
+//         if(resp.ok){
+//             info.innerHTML="Respuesta"+resp;
+//             console.log(resp);
 
-            resp.text()
-            .then(function(data){
-                info.innerHTML=" valor:"+data;
-            }).catch(function(err){
-                info.innerHTML="ERROR"+err;
+//             resp.text()
+//             .then(function(data){
+//                 info.innerHTML=" valor:"+data;
+//             }).catch(function(err){
+//                 info.innerHTML="ERROR"+err;
 
-            });
-        }
+//             });
+//         }
         
-    })
-    .catch(function(err){
-        info.innerHTML="ERROR"+err;
-    });
+//     })
+//     .catch(function(err){
+//         info.innerHTML="ERROR"+err;
+//     });
 
 
-});
+// });
