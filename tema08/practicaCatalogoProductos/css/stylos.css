@@ -1,4 +1,3 @@
-
 :root {
     --color-fondo: #f5f6f7;
     --color-primario: #1f5651;
@@ -59,18 +58,18 @@ header h1 {
     margin: 2rem 0;
 }
 
-#enlaces li a {
-    display: block;
+#enlaces li button {
     padding: 0.7rem 1.4rem;
     background-color: var(--color-secundario);
     color: white;
-    text-decoration: none;
+    border: none;
     border-radius: 4px;
     font-weight: 500;
+    cursor: pointer;
     transition: background-color 0.25s ease, transform 0.15s ease;
 }
 
-#enlaces li a:hover {
+#enlaces li button:hover {
     background-color: var(--color-primario);
     transform: translateY(-2px);
 }
@@ -82,17 +81,30 @@ header h1 {
     color: var(--color-primario);
     margin-bottom: 2rem;
 
-    /* Fondo translúcido y ancho completo */
     width: 100%;
     padding: 1rem 2rem;
     background-color: rgba(31, 86, 81, 0.08);
     border-left: 6px solid var(--color-acento);
-    border-radius: 0;
     text-align: left;
 }
 
+/* CATEGORÍAS */
+#categorias {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#categorias select {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--color-secundario);
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+}
+
 /* TARJETAS */
- #tarjetas {
+#tarjetas {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     gap: 1.8rem;
@@ -111,17 +123,68 @@ header h1 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.tarjeta h2 {
+.tarjeta h3 {
     font-size: 1.25rem;
     color: var(--color-primario);
     margin-bottom: 0.6rem;
     font-weight: 600;
 }
 
+.tarjeta img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
 .tarjeta p {
     margin-bottom: 0.4rem;
     font-size: 0.95rem;
-} 
+}
+
+/* BOTÓN BORRAR EN TARJETA */
+.tarjeta button {
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.tarjeta button:hover {
+    background-color: #e74c3c;
+}
+
+/* FORMULARIO AÑADIR */
+form label {
+    font-weight: 600;
+    color: var(--color-primario);
+}
+
+form input {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 4px;
+}
+
+form button {
+    padding: 0.7rem 1.4rem;
+    background-color: var(--color-secundario);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+form button:hover {
+    background-color: var(--color-primario);
+}
 
 /* FOOTER */
 footer {
