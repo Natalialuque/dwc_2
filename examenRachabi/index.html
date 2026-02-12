@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CamperRent - Alquiler de Caravanas y Autocaravanas</title>
+	<link rel="stylesheet" href="css/style.css">
+    <script type="module" src="index.js"></script>
+</head>
+<body>
+    <header class="container-grid">
+		<div>
+			<h1>CamperRent</h1>
+			<p>Alquiler de Caravanas y Autocaravanas</p>
+            <p id="errores"></p>
+		</div>
+		<div class="login">
+			<label for="login">Login:</label>
+			<input type="text" name="login" id="login">
+			<label for="pass">Password:</label>
+			<input type="password" name="pass" id="pass">
+			<button id="Btnlogin" class="btn">Login</button>
+			<button id="BtnRegister" class="btn btn-header">Registrarse</button>
+            <a id="forget">Forget me!</a>
+		</div>
+    </header>
+    
+    <main class="container">
+        <!-- Sección de Filtros -->
+        <section class="search-container">
+            <h2>Busca tu vehículo ideal</h2>
+            <form id="search-form">
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="vehicle-type">Tipo de vehículo</label>
+                        <select id="vehicle-type" name="vehicle-type">
+                            <option value="">Todos los tipos</option>
+                            <option value="caravan">Caravana</option>
+                            <option value="motorhome">Autocaravana</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="capacity">Capacidad (personas)</label>
+                        <select id="capacity" name="capacity">
+                            <option value="">Cualquier capacidad</option>
+                            <option value="2">2 personas</option>
+                            <option value="4">4 personas</option>
+                            <option value="6">6 personas</option>
+                            <option value="8">8+ personas</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="start-date">Fecha de inicio</label>
+                        <input type="date" id="start-date" name="start-date">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="end-date">Fecha de fin</label>
+                        <input type="date" id="end-date" name="end-date">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="min-price">Precio mínimo (€/día)</label>
+                        <input type="number" id="min-price" name="min-price" min="0">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="max-price">Precio máximo (€/día)</label>
+                        <input type="number" id="max-price" name="max-price" min="0">
+                    </div>
+                    
+                    <button class="btn btn-filter" id="apply-filters">Aplicar filtros</button>
+                </div>
+            </form>
+        </section>
+        
+        <!-- Catálogo de Vehículos -->
+        <section class="vehicles-container" id="vehicles-container">
+        </section>
+    </main>
+    <footer class="container-grid">
+        <section class="container-foot">
+            <div class="temporada_baja">
+                <h3>Temporada baja:</h3>
+                <p id="TBprecioDia"></p>
+                <p id="TBminDias"></p>
+                <p id="TBfianza"></p>
+                <p id="TBfechas"></p>
+            </div>
+            <div class="temporada_media">
+                <h3>Temporada Media:</h3>
+                <p id="TMprecioDia"></p>
+                <p id="TMminDias"></p>
+                <p id="TMfianza"></p>
+                <p id="TMfechas"></p>
+            </div>
+            <div class="temporada_alta">
+                <h3>Temporada alta:</h3>
+                <p id="TAprecioDia"></p>
+                <p id="TAminDias"></p>
+                <p id="TAfianza"></p>
+                <p id="TAfechas"></p>
+            </div>
+        </section>
+        <section class="extras">
+            <h3>Extras incluidos</h3>
+            <ul id="extras">
+            </ul>
+        </section>
+    </footer>
+    </body>
+</html>

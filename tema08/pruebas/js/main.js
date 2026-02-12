@@ -103,4 +103,4 @@ document.getElementById("boton").addEventListener("click", () => {
     localStorage.pass = pass.value;
     localStorage.prefColor = prefColor.value;
 });
-
+burta.txt
