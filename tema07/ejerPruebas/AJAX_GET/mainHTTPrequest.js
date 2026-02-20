@@ -59,20 +59,6 @@ function cargarXML() {
   xhr.send();
 }
 
-//CUARTO MAIN 
-document.getElementById("btnHTML").addEventListener("click", () => {
-  let xhr = new XMLHttpRequest();
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      document.getElementById("resultado").innerHTML = xhr.responseText;
-    }
-  };
-
-  xhr.open("GET", "server/datos.html", true);
-  xhr.send(null);
-});
-
 
 //QUINTO MAIN
 document.getElementById("btnPHP").addEventListener("click", () => {
@@ -90,3 +76,20 @@ document.getElementById("btnPHP").addEventListener("click", () => {
   xhr.open("GET", "server/datos.php", true);
   xhr.send(null);
 });
+
+
+//CUARTO MAIN 
+document.getElementById("btnHTML").addEventListener("click", () => {
+  let xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      document.getElementById("resultado").innerHTML = xhr.responseText;
+    }
+  };
+
+  xhr.open("GET", "server/datos.html", true);
+  xhr.send(null);
+});
+
+

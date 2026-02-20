@@ -1,5 +1,5 @@
 // URL BASE
-const BASE = "/DWC/dwc_2/tema08/practicaCatalogoProductos/server/PRODUCTS.JSON";
+const BASE = "/DWC/tema08/practicaCatalogoProductos/server/PRODUCTS.JSON";
 
 // array para poder meter los datos del json, ya que al añadir y modificar no tocamos el json
 let productosCache = [];
@@ -272,9 +272,9 @@ function mostrarProductosDesdeCache() {
         "Número de productos totales: " + productosCache.length;
 }
 
-/* ----------------------------------------------------------
-   FORMULARIO AÑADIR
----------------------------------------------------------- */
+/* 
+*   FORMULARIO AÑADIR
+ */
 function formularioNuevoProducto() {
     limpiar();
     limpiarCategorias();

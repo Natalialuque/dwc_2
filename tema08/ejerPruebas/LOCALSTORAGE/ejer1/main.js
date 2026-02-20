@@ -6,5 +6,4 @@ if (!localStorage.cuenta) {
 // Si ya existe, la incrementamos
 localStorage.cuenta = parseInt(localStorage.cuenta) + 1;
 
-// Mostramos el valor en pantalla
-document.getElementById("cuenta").textContent = localStorage.cuenta;
+
