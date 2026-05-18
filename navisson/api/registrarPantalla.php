@@ -9,12 +9,12 @@ $pantalla = json_decode($entrada, true);
 
 // Comprobamos que haya datos y que venga la referencia de la pantalla
 if (!$pantalla || !isset($pantalla["referencia"])) {
-    // Si faltan datos devolvemos error 400 de petición incorrecta
+    // Si faltan datos devolvemos error 400 de peticiÃ³n incorrecta
     http_response_code(400);
     // Enviamos una respuesta JSON explicando el fallo
     echo json_encode([
         "ok" => false,
-        "mensaje" => "Datos de pantalla no validos"
+        "mensaje" => "Datos de pantalla no válidos"
     ]);
     // Paramos el script para no guardar nada mal
     exit;
@@ -38,7 +38,7 @@ if (file_exists($rutaArchivo)) {
     }
 }
 
-// Añadimos una nueva alta con fecha y datos de la pantalla
+// AÃ±adimos una nueva alta con fecha y datos de la pantalla
 $altas[] = [
     "fechaAlta" => date("Y-m-d H:i:s"),
     "pantalla" => $pantalla
@@ -53,3 +53,4 @@ echo json_encode([
     "mensaje" => "Pantalla registrada en servidor",
     "totalAltas" => count($altas)
 ]);
+

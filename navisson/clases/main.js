@@ -1,4 +1,4 @@
-﻿// Importamos la clase Pantalla para crear objetos de pantalla
+// Importamos la clase Pantalla para crear objetos de pantalla
 import { Pantalla } from "./pantallas/Pantalla.js";
 // Importamos la clase Nodos para crear la interfaz con document.createElement
 import { Nodos } from "./nodos/Nodos.js";
@@ -6,17 +6,26 @@ import { Nodos } from "./nodos/Nodos.js";
 import { ServicioApi } from "./servicios/ServicioApi.js";
 // Importamos el servicio de localStorage, sessionStorage y cookies
 import { ServicioAlmacenamiento } from "./servicios/ServicioAlmacenamiento.js";
-// Importamos la función que valida el formulario
-import { validarPantalla } from "./utilidades/validadores.js";
+// Importamos las funciones que validan formularios
+import { validarAcceso, validarPantalla } from "./utilidades/validadores.js";
 
 // Creamos un objeto de la clase Nodos
 const creadorNodos = new Nodos();
 // Creamos toda la estructura HTML dentro del contenedor del index
 creadorNodos.crearAplicacion();
+// Creamos la pantalla de acceso inicial
+creadorNodos.crearAcceso();
 
 // Llamamos a las variables del HTML para poder usarlas y modificarlas
 const listaPantallas = document.getElementById("listaPantallas");
 const lineaEstado = document.getElementById("lineaEstado");
+
+// Variables de la pantalla de acceso
+const capaAcceso = document.getElementById("capaAcceso");
+const formularioAcceso = document.getElementById("formularioAcceso");
+const usuarioAcceso = document.getElementById("usuarioAcceso");
+const contrasenaAcceso = document.getElementById("contrasenaAcceso");
+const errorAcceso = document.getElementById("errorAcceso");
 
 // Variables del formulario
 const formularioPantalla = document.getElementById("formularioPantalla");
@@ -24,15 +33,15 @@ const tituloFormulario = document.getElementById("tituloFormulario");
 const referenciaEdicion = document.getElementById("referenciaEdicion");
 const botonCancelarEdicion = document.getElementById("botonCancelarEdicion");
 
-// Variables de los botones principales
+// Variables de los bot?nes principales
 const botonRecargar = document.getElementById("botonRecargar");
-const botonEstadisticas = document.getElementById("botonEstadisticas");
+const botonEstadísticas = document.getElementById("botonEstadísticas");
 const botonTema = document.getElementById("botonTema");
 
 // Variables de los campos del formulario
 const campoNombre = document.getElementById("nombrePantalla");
 const campoReferencia = document.getElementById("referenciaPantalla");
-const campoTamano = document.getElementById("tamanoPantalla");
+const campoTamaño = document.getElementById("tamañoPantalla");
 const campoTipo = document.getElementById("tipoPantalla");
 const campoEstado = document.getElementById("estadoPantalla");
 const campoPrecio = document.getElementById("precioPantalla");
@@ -42,7 +51,7 @@ const campoImagen = document.getElementById("imagenPantalla");
 // Variables de los mensajes de error del formulario
 const errorNombre = document.getElementById("errorNombrePantalla");
 const errorReferencia = document.getElementById("errorReferenciaPantalla");
-const errorTamano = document.getElementById("errorTamanoPantalla");
+const errorTamaño = document.getElementById("errorTamañoPantalla");
 const errorTipo = document.getElementById("errorTipoPantalla");
 const errorEstado = document.getElementById("errorEstadoPantalla");
 const errorPrecio = document.getElementById("errorPrecioPantalla");
@@ -63,16 +72,20 @@ const pantallas = [];
 // Variable para recordar si está activo el fondo oscuro
 let fondoOscuro = true;
 
-// Variable para guardar el clima del taller y mostrarlo solo en estadisticas
+// Variable para guardar el clima del taller y mostrarlo solo en estad?sticas
 let climaTaller = "No disponible";
+
+const CLAVE_SESION_ACCESO = "navisson.sesionIniciada";
 
 // Iniciamos la aplicación
 iniciarAplicacion();
 
 // función principal de arranque de la aplicación
 async function iniciarAplicacion() {
-    // Asignamos todos los eventos de botones, filtros y formulario
+    // Asignamos todos los eventos de bot?nes, filtros y formulario
     asignarEventos();
+    // Mostramos o escondemos el acceso según la sesión
+    controlarAcceso();
     // Preparamos el worker para recibir resultados
     asignarTrabajador();
     // Recuperamo filtros guardados en sessionStorage
@@ -89,26 +102,90 @@ async function iniciarAplicacion() {
 
 // función donde se asignan los eventos
 function asignarEventos() {
+    // Evento submit del formulario de acceso
+    formularioAcceso.addEventListener("submit", iniciarSesion);
     // Evento submit del formulario para guardar o modificar pantalla
     formularioPantalla.addEventListener("submit", guardarPantalla);
-    // Evento para cancelar la edicion
+    // Evento para cancelar la edici?n
     botonCancelarEdicion.addEventListener("click", limpiarFormulario);
-    // Evento delegado para los botones de cada tarjeta
+    // Evento delegado para los bot?nes de cada tarjeta
     listaPantallas.addEventListener("click", gestionarClickLista);
     // Eventos de filtros
     busquedaPantalla.addEventListener("input", aplicarFiltros);
     filtroTipo.addEventListener("change", aplicarFiltros);
     filtroEstado.addEventListener("change", aplicarFiltros);
     ordenPantallas.addEventListener("change", aplicarFiltros);
-    // Eventos de botones de la cabecera
+    // Eventos de bot?nes de la cabecera
     botonRecargar.addEventListener("click", recargarJson);
-    botonEstadisticas.addEventListener("click", abrirVentanaEstadisticas);
+    botonEstadísticas.addEventListener("click", abrirVentanaEstadísticas);
     botonTema.addEventListener("click", cambiarTema);
 
     // Antes de cerrar o recargar guardamos los filtros en sessionStorage
     window.addEventListener("beforeunload", () => {
         ServicioAlmacenamiento.guardarFiltros(leerFiltros());
     });
+}
+
+// función que muestra el acceso si no hay sesión iniciada
+function controlarAcceso() {
+    if (sessionStorage.getItem(CLAVE_SESION_ACCESO) === "si") {
+        ocultarAcceso();
+    } else {
+        mostrarAcceso();
+    }
+}
+
+// función que comprueba usuario y contraseña
+function iniciarSesion(evento) {
+    // Evitamos que el formulario recargue la página
+    evento.preventDefault();
+
+    // Leemos los datos introducidos
+    const usuario = usuarioAcceso.value.trim();
+    const contrasena = contrasenaAcceso.value;
+
+    // Validamos el formato de los datos de acceso
+    const validacion = validarAcceso({ usuario, contrasena });
+
+    if (validacion.esValido) {
+        sessionStorage.setItem(CLAVE_SESION_ACCESO, "si");
+        errorAcceso.textContent = "";
+        formularioAcceso.reset();
+        ocultarAcceso();
+        mostrarEstado("Sesión iniciada correctamente.");
+        return;
+    }
+
+    // Si no cumple el formato, mostramos el error correspondiente
+    errorAcceso.textContent = validacion.errores.usuario || validacion.errores.contrasena;
+
+    if (validacion.errores.usuario) {
+        usuarioAcceso.focus();
+    } else {
+        contrasenaAcceso.value = "";
+        contrasenaAcceso.focus();
+    }
+}
+
+// función que muestra la pantalla de acceso
+function mostrarAcceso() {
+    capaAcceso.classList.remove("oculto");
+    document.body.classList.add("acceso-bloqueado");
+    usuarioAcceso.focus();
+}
+
+// función que oculta la pantalla de acceso
+function ocultarAcceso() {
+    capaAcceso.classList.add("oculto");
+    document.body.classList.remove("acceso-bloqueado");
+}
+
+// función que cierra la sesión y vuelve a pedir acceso
+function cerrarSesion() {
+    sessionStorage.removeItem(CLAVE_SESION_ACCESO);
+    formularioAcceso.reset();
+    errorAcceso.textContent = "";
+    mostrarAcceso();
 }
 
 // función que prepara la respuestá del worker
@@ -169,7 +246,7 @@ function cambiarTema() {
 function pintarTemaOscuro() {
     // Si fondoOscuro es true, se añade la clase; si es false, se quita
     document.body.classList.toggle("fondo-oscuro", fondoOscuro);
-    // Cambiamos el texto del boton
+    // Cambiamos el texto del bot?n
     botonTema.textContent = fondoOscuro ? "Modo claro" : "Modo oscuro";
 }
 
@@ -232,6 +309,8 @@ async function recargarJson() {
         aplicarFiltros();
         // Informamos al usuario
         mostrarEstado("Datos iniciales recargados desde json/pantallas.json.");
+        // Al recargar el JSON se vuelve a pedir acceso
+        cerrarSesion();
     } catch (error) {
         // Si algo falla, mostramos el mensaje
         mostrarEstado(error.message);
@@ -247,7 +326,7 @@ async function cargarClima() {
         // Guardamos el dato actual en una variable
         const actual = clima.current;
 
-        // No se muestra en el index; solo se guarda para estadisticas
+        // No se muestra en el index; solo se guarda para estad?sticas
         climaTaller = actual.temperature_2m + " C - viento " + actual.wind_speed_10m + " km/h";
     } catch (error) {
         // Si falla, dejamos un texto de reserva
@@ -326,15 +405,15 @@ async function registrarAltaSinBloquear(pantallaActual) {
 
 // función que gestiona clicks dentro de la lista de pantallas
 function gestionarClickLista(evento) {
-    // Buscamos si el click viene de un boton con data-accion
+    // Buscamos si el click viene de un bot?n con data-acci?n
     const boton = evento.target.closest("button[data-accion]");
 
-    // Si no se ha pulsado un boton de accion, no hacemos nada
+    // Si no se ha pulsado un bot?n de acci?n, no hacemos nada
     if (!boton) {
         return;
     }
 
-    // Leemos la accion y la referencia guardadas en data
+    // Leemos la acci?n y la referencia guardadas en data
     const accion = boton.dataset.accion;
     const referencia = boton.dataset.referencia;
     // Buscamos la pantalla correspondiente
@@ -433,11 +512,11 @@ async function leerFormulario(referenciaActual = "") {
     return {
         nombre: campoNombre.value,
         referencia: campoReferencia.value,
-        tamano: campoTamano.value,
+        tamaño: campoTamaño.value,
         tipo: campoTipo.value,
         estado: campoEstado.value,
         precio: campoPrecio.value,
-        fechaFabricacion: campoFecha.value,
+        fechaFabricación: campoFecha.value,
         imagen: await leerImagenFormulario(pantallaEditada)
     };
 }
@@ -487,11 +566,11 @@ function rellenarFormulario(pantallaActual) {
     // Rellenamos cada campo
     campoNombre.value = pantallaActual.nombre;
     campoReferencia.value = pantallaActual.referencia;
-    campoTamano.value = pantallaActual.tamano;
+    campoTamaño.value = pantallaActual.tamaño;
     campoTipo.value = pantallaActual.tipo;
     campoEstado.value = pantallaActual.estado;
     campoPrecio.value = pantallaActual.precio;
-    campoFecha.value = pantallaActual.fechaFabricacion;
+    campoFecha.value = pantallaActual.fechaFabricación;
     // Ponemos el foco en el primer campo
     campoNombre.focus();
 }
@@ -502,7 +581,7 @@ function limpiarFormulario() {
     formularioPantalla.reset();
     // Volvemos al titulo inicial
     tituloFormulario.textContent = "Nueva pantalla";
-    // Quitamos la referencia de edicion
+    // Quitamos la referencia de edici?n
     referenciaEdicion.value = "";
     // Limpiamos errores
     limpiarErrores();
@@ -526,9 +605,9 @@ function pintarErrores(errores) {
     }
 
     // Error de tamaño
-    if (errores.tamano) {
-        errorTamano.textContent = errores.tamano;
-        campoTamano.classList.add("campo-invalido");
+    if (errores.tamaño) {
+        errorTamaño.textContent = errores.tamaño;
+        campoTamaño.classList.add("campo-invalido");
     }
 
     // Error de tipo
@@ -550,8 +629,8 @@ function pintarErrores(errores) {
     }
 
     // Error de fecha
-    if (errores.fechaFabricacion) {
-        errorFecha.textContent = errores.fechaFabricacion;
+    if (errores.fechaFabricación) {
+        errorFecha.textContent = errores.fechaFabricación;
         campoFecha.classList.add("campo-invalido");
     }
 }
@@ -561,7 +640,7 @@ function limpiarErrores() {
     // Vaciamos textos de error
     errorNombre.textContent = "";
     errorReferencia.textContent = "";
-    errorTamano.textContent = "";
+    errorTamaño.textContent = "";
     errorTipo.textContent = "";
     errorEstado.textContent = "";
     errorPrecio.textContent = "";
@@ -570,7 +649,7 @@ function limpiarErrores() {
     // Quitamos clase de error de todos los campos
     campoNombre.classList.remove("campo-invalido");
     campoReferencia.classList.remove("campo-invalido");
-    campoTamano.classList.remove("campo-invalido");
+    campoTamaño.classList.remove("campo-invalido");
     campoTipo.classList.remove("campo-invalido");
     campoEstado.classList.remove("campo-invalido");
     campoPrecio.classList.remove("campo-invalido");
@@ -590,7 +669,7 @@ function leerFiltros() {
 
 // función para escribir mensajes de estado
 function mostrarEstado(mensaje) {
-    // Cambiamos el texto de la linea de estado
+    // Cambiamos el texto de la l?nea de estado
     lineaEstado.textContent = mensaje;
 }
 
@@ -632,10 +711,10 @@ function abrirVentanaDetalle(pantallaActual) {
                 <dl>
                     <div><dt>Tipo</dt><dd>${pantallaActual.tipo}</dd></div>
                     <div><dt>Estado</dt><dd>${pantallaActual.estado}</dd></div>
-                    <div><dt>Tamano</dt><dd>${pantallaActual.tamano}"</dd></div>
+                    <div><dt>Tamaño</dt><dd>${pantallaActual.tamaño}"</dd></div>
                     <div><dt>Precio</dt><dd>${pantallaActual.obtenerPrecioFormateado()}</dd></div>
-                    <div><dt>Fabricacion</dt><dd>${pantallaActual.fechaFabricacion}</dd></div>
-                    <div><dt>Dias desde fabricacion</dt><dd>${pantallaActual.obtenerDiasDesdeFabricacion()}</dd></div>
+                    <div><dt>Fabricación</dt><dd>${pantallaActual.fechaFabricación}</dd></div>
+                    <div><dt>Días desde fabricación</dt><dd>${pantallaActual.obtenerDiasDesdeFabricación()}</dd></div>
                 </dl>
             </main>
         </body>
@@ -645,8 +724,8 @@ function abrirVentanaDetalle(pantallaActual) {
     ventanaDetalle.document.close();
 }
 
-// función para abrir una ventana con estadisticas
-function abrirVentanaEstadisticas() {
+// función para abrir una ventana con estad?sticas
+function abrirVentanaEstadísticas() {
     // Total de pantallas registradas
     const total = pantallas.length;
     // Pantallas en stock
@@ -662,21 +741,21 @@ function abrirVentanaEstadisticas() {
     // Pantalla más cara
     const masCara = [...pantallas].sort((primera, segunda) => segunda.precio - primera.precio)[0];
     // Creamos ventana nueva
-    const ventanaEstadisticas = window.open("", "navisson-estadisticas", "width=620,height=700");
+    const ventanaEstadísticas = window.open("", "navisson-estadisticas", "width=620,height=700");
 
     // Si el navegador bloquea la ventana, avisamos
-    if (!ventanaEstadisticas) {
+    if (!ventanaEstadísticas) {
         mostrarEstado("El navegador ha bloqueado la ventana de estadisticas.");
         return;
     }
 
-    // Escribimos las estadisticas, incluyendo los datos que ya no aparecen en el index
-    ventanaEstadisticas.document.write(`
+    // Escribimos las estad?sticas, incluyendo los datos que ya no aparecen en el index
+    ventanaEstadísticas.document.write(`
         <!DOCTYPE html>
         <html lang="es">
         <head>
             <meta charset="UTF-8">
-            <title>Estadisticas Navisson</title>
+            <title>Estadísticas Navisson</title>
             <style>
                 body { margin: 0; font-family: Arial, sans-serif; color: #20201f; background: #f7f7f6; }
                 main { padding: 28px; }
@@ -690,7 +769,7 @@ function abrirVentanaEstadisticas() {
         </head>
         <body>
             <main>
-                <h1>Estadisticas del inventario</h1>
+                <h1>Estadísticas del inventario</h1>
                 <section>
                     <article><strong>${total}</strong><span>Pantallas registradas</span></article>
                     <article><strong>${stock}</strong><span>Pantallas en stock</span></article>
@@ -708,7 +787,9 @@ function abrirVentanaEstadisticas() {
         </html>
     `);
     // Cerramos el documento de la ventana
-    ventanaEstadisticas.document.close();
+    ventanaEstadísticas.document.close();
 }
+
+
 
 

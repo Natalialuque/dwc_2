@@ -1,4 +1,4 @@
-﻿// Importamos la clase Pantalla para convertir los datos recibidos en objetos
+// Importamos la clase Pantalla para convertir los datos recibidos en objetos
 import { Pantalla } from "../pantallas/Pantalla.js";
 
 // Objeto que agrupa las llamadas fetch de la aplicación
@@ -23,7 +23,7 @@ export const ServicioApi = {
 
     // Carga el clima del taller desde una API externa
     async cargarClimaTaller() {
-        // URL de Open-Meteo para Malaga con temperatura y viento actuales
+        // URL de Open-Meteo para Málaga con temperatura y viento actuales
         const ruta = "https://api.open-meteo.com/v1/forecast?latitude=36.7213&longitude=-4.4214&current=temperature_2m,wind_speed_10m&timezone=Europe%2FMadrid";
         // Pedimos los datos con fetch
         const respuesta = await fetch(ruta);
@@ -63,5 +63,6 @@ export const ServicioApi = {
         return datos;
     }
 };
+
 
 

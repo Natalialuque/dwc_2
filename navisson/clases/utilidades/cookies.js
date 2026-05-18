@@ -3,7 +3,7 @@ export function ponerCookie(nombre, valor, dias = 7) {
     // Creamos una fecha a partir del dia actual
     const fecha = new Date();
 
-    // Sumamos los dias de duracion de la cookie
+    // Sumamos los d?as de duraci?n de la cookie
     fecha.setDate(fecha.getDate() + dias);
     // Guardamos la cookie codificando nombre y valor
     document.cookie = encodeURIComponent(nombre) + "=" + encodeURIComponent(valor) + "; expires=" + fecha.toUTCString() + "; path=/";

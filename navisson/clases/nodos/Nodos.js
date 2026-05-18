@@ -1,4 +1,4 @@
-﻿// Clase encargada de crear los nodos en JavaScript
+// Clase encargada de crear los nodos en JavaScript
 export class Nodos {
     // Recibimos el id del contenedor donde se montara toda la aplicación
     constructor(idContenedor = "aplicacion") {
@@ -20,22 +20,22 @@ export class Nodos {
         return elemento;
     }
 
-    // Crea un boton normal de la aplicación
+    // Crea un bot?n normal de la aplicación
     crearBoton(texto, clase, id = "") {
-        // Creamos el boton con createElement
+        // Creamos el bot?n con createElement
         const boton = this.crearElemento("button", clase);
 
-        // Todos los botones normales son type button para que no envien formularios sin querer
+        // Todos los bot?nes normales son type button para que no envien formularios sin querer
         boton.type = "button";
         // Texto que vera el usuario
         boton.textContent = texto;
 
-        // Si el boton necesita id, se lo ponemos
+        // Si el bot?n necesita id, se lo ponemos
         if (id) {
             boton.id = id;
         }
 
-        // Devolbemos el boton creado
+        // Devolbemos el bot?n creado
         return boton;
     }
 
@@ -204,7 +204,73 @@ export class Nodos {
         this.contenedor.appendChild(principal);
     }
 
-    // Crea la cabecera con logo, titulo y botones
+    // Crea la pantalla de inicio de sesión
+    crearAcceso() {
+        // Capa que tapa la aplicación hasta validar usuario
+        const capa = this.crearElemento("section", "capa-acceso");
+        // Formulario de acceso
+        const formulario = this.crearElemento("form", "formulario-acceso");
+        // Logo del acceso
+        const logo = this.crearElemento("img", "logo-acceso");
+        // Titulo del formulario
+        const titulo = document.createElement("h2");
+        // Campo usuario
+        const usuario = document.createElement("input");
+        // Campo contraseña
+        const contrasena = document.createElement("input");
+        // Mensaje de error
+        const error = this.crearElemento("p", "error-acceso");
+        // Boton de iniciar sesión
+        const boton = this.crearBoton("Iniciar sesión", "boton-principal", "botonIniciarSesion");
+
+        // Configuramos la capa
+        capa.id = "capaAcceso";
+        capa.setAttribute("aria-modal", "true");
+        capa.setAttribute("role", "dialog");
+
+        // Configuramos el formulario
+        formulario.id = "formularioAcceso";
+        formulario.noValidate = true;
+
+        // Configuramos logo y textos
+        logo.src = "src/navisson-logo.png";
+        logo.alt = "Logotipo de Navisson";
+        titulo.textContent = "Acceso Navisson";
+
+        // Configuramos usuario
+        usuario.id = "usuarioAcceso";
+        usuario.name = "usuario";
+        usuario.type = "text";
+        usuario.placeholder = "Usuario";
+        usuario.autocomplete = "username";
+        usuario.required = true;
+
+        // Configuramos contraseña
+        contrasena.id = "contrasenaAcceso";
+        contrasena.name = "contrasena";
+        contrasena.type = "password";
+        contrasena.placeholder = "Contraseña";
+        contrasena.autocomplete = "current-password";
+        contrasena.required = true;
+
+        // Configuramos error y bot?n
+        error.id = "errorAcceso";
+        boton.type = "submit";
+
+        // Montamos el formulario de acceso
+        formulario.appendChild(logo);
+        formulario.appendChild(titulo);
+        formulario.appendChild(usuario);
+        formulario.appendChild(contrasena);
+        formulario.appendChild(error);
+        formulario.appendChild(boton);
+        capa.appendChild(formulario);
+
+        // Lo añadimos al body para que tape toda la ventana
+        document.body.appendChild(capa);
+    }
+
+    // Crea la cabecera con logo, titulo y bot?nes
     crearCabecera() {
         // Header principal
         const cabecera = this.crearElemento("header", "cabecera-aplicacion");
@@ -218,7 +284,7 @@ export class Nodos {
         const etiqueta = this.crearElemento("p", "etiqueta");
         // Titulo grande
         const titulo = document.createElement("h1");
-        // Zona de botones
+        // Zona de bot?nes
         const acciones = this.crearElemento("div", "acciones-cabecera");
 
         // Configuramos imagen
@@ -227,11 +293,11 @@ export class Nodos {
 
         // Configuramos textos
         etiqueta.textContent = "Inventario interno";
-        titulo.textContent = "Gestion de pantallas para vehiculos";
+        titulo.textContent = "Gestión de pantallas para vehículos";
 
-        // Configuramos zona de acciones
+        // Configuramos zona de acci?nes
         acciones.setAttribute("aria-label", "Acciones principales");
-        acciones.appendChild(this.crearBoton("Estadisticas", "boton-secundario", "botonEstadisticas"));
+        acciones.appendChild(this.crearBoton("Estadísticas", "boton-secundario", "botonEstadísticas"));
         acciones.appendChild(this.crearBoton("Modo claro", "boton-secundario", "botonTema"));
         acciones.appendChild(this.crearBoton("Recargar JSON", "boton-secundario", "botonRecargar"));
 
@@ -272,7 +338,7 @@ export class Nodos {
         // Campo oculto para saber si estamos editando
         const oculto = document.createElement("input");
         // Primera fila de tamaño y precio
-        const filaTamanoPrecio = this.crearElemento("div", "fila-formulario");
+        const filaTamañoPrecio = this.crearElemento("div", "fila-formulario");
         // segunda fila de tipo y estado
         const filaTipoEstado = this.crearElemento("div", "fila-formulario");
         // Label de fecha
@@ -292,32 +358,32 @@ export class Nodos {
         formulario.id = "formularioPantalla";
         formulario.noValidate = true;
 
-        // Campo oculto de edicion
+        // Campo oculto de edici?n
         oculto.type = "hidden";
         oculto.id = "referenciaEdicion";
         oculto.value = "";
 
         // Campos de tamaño y precio
-        filaTamanoPrecio.appendChild(this.crearCampoTexto("tamanoPantalla", "tamano", "Tamano", "text", "10.1", "errorTamanoPantalla"));
-        filaTamanoPrecio.appendChild(this.crearCampoTexto("precioPantalla", "precio", "Precio", "text", "249.90", "errorPrecioPantalla"));
+        filaTamañoPrecio.appendChild(this.crearCampoTexto("tamañoPantalla", "tamaño", "Tamaño", "text", "10.1", "errorTamañoPantalla"));
+        filaTamañoPrecio.appendChild(this.crearCampoTexto("precioPantalla", "precio", "Precio", "text", "249.90", "errorPrecioPantalla"));
 
         // Selects de tipo y estado
         filaTipoEstado.appendChild(this.crearSelect("tipoPantalla", "tipo", "Tipo", ["LCD", "OLED", "Tactil", "AMOLED", "LED"], "errorTipoPantalla"));
         filaTipoEstado.appendChild(this.crearSelect("estadoPantalla", "estado", "Estado", ["En stock", "Enviada", "Defectuosa"], "errorEstadoPantalla"));
 
-        // Campo fecha de fabricacion
+        // Campo fecha de fabricaci?n
         labelFecha.htmlFor = "fechaPantalla";
-        labelFecha.textContent = "Fecha de fabricacion";
+        labelFecha.textContent = "Fecha de fabricación";
         inputFecha.id = "fechaPantalla";
-        inputFecha.name = "fechaFabricacion";
+        inputFecha.name = "fechaFabricación";
         inputFecha.type = "date";
         inputFecha.required = true;
         errorFecha.id = "errorFechaPantalla";
 
-        // El boton guardar debe enviar el formulario
+        // El bot?n guardar debe enviar el formulario
         guardar.type = "submit";
 
-        // Montamos los botones
+        // Montamos los bot?nes
         acciones.appendChild(guardar);
         acciones.appendChild(cancelar);
 
@@ -326,7 +392,7 @@ export class Nodos {
         formulario.appendChild(oculto);
         formulario.appendChild(this.crearCampoTexto("nombrePantalla", "nombre", "Nombre / modelo", "text", "Navisson Vision X7", "errorNombrePantalla"));
         formulario.appendChild(this.crearCampoTexto("referenciaPantalla", "referencia", "Referencia", "text", "NAV-2026-001", "errorReferenciaPantalla"));
-        formulario.appendChild(filaTamanoPrecio);
+        formulario.appendChild(filaTamañoPrecio);
         formulario.appendChild(filaTipoEstado);
         formulario.appendChild(labelFecha);
         formulario.appendChild(inputFecha);
@@ -442,19 +508,19 @@ export class Nodos {
         return contenedor;
     }
 
-    // Crea un boton de tarjeta con su accion y referencia asociada
+    // Crea un bot?n de tarjeta con su acci?n y referencia asociada
     crearBotonTarjeta(texto, clase, accion, referencia) {
-        // Creamos el boton
+        // Creamos el bot?n
         const boton = document.createElement("button");
 
-        // Configramos boton y datasets
+        // Configramos bot?n y datasets
         boton.type = "button";
         boton.className = clase;
         boton.dataset.accion = accion;
         boton.dataset.referencia = referencia;
         boton.textContent = texto;
 
-        // Devolvemos el boton
+        // Devolvemos el bot?n
         return boton;
     }
 
@@ -495,11 +561,11 @@ export class Nodos {
 
         // Montamos detalles de la pantalla
         detalles.appendChild(this.crearDetalle("Tipo", pantalla.tipo));
-        detalles.appendChild(this.crearDetalle("Tamano", pantalla.tamano + '"'));
+        detalles.appendChild(this.crearDetalle("Tamaño", pantalla.tamaño + '"'));
         detalles.appendChild(this.crearDetalle("Precio", pantalla.obtenerPrecioFormateado()));
-        detalles.appendChild(this.crearDetalle("Fabricacion", pantalla.fechaFabricacion));
+        detalles.appendChild(this.crearDetalle("Fabricación", pantalla.fechaFabricación));
 
-        // Montamos botones de accion
+        // Montamos bot?nes de acci?n
         acciones.appendChild(this.crearBotonTarjeta("Ver", "boton-fantasma", "detalle", pantalla.referencia));
         acciones.appendChild(this.crearBotonTarjeta("Editar", "boton-principal", "editar", pantalla.referencia));
         acciones.appendChild(this.crearBotonTarjeta("Eliminar", "boton-peligro", "eliminar", pantalla.referencia));
@@ -527,5 +593,7 @@ export class Nodos {
         return parrafo;
     }
 }
+
+
 
 

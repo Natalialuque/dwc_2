@@ -2,7 +2,7 @@
     {
         "referencia": "NAV-2026-001",
         "nombre": "Sistema Multimedia Navisson Audi A6",
-        "tamano": 10.1,
+        "tamaño": 10.1,
         "tipo": "LCD",
         "estado": "En stock",
         "precio": 249.9,
@@ -12,7 +12,7 @@
     {
         "referencia": "NAV-2026-002",
         "nombre": "Sistema Multimedia Navisson Volkswagen Multivan",
-        "tamano": 12.3,
+        "tamaño": 12.3,
         "tipo": "Tactil",
         "estado": "Enviada",
         "precio": 329.5,
@@ -22,7 +22,7 @@
     {
         "referencia": "NAV-2026-003",
         "nombre": "Sistema Multimedia Navisson Mitsubishi Outlander",
-        "tamano": 9.7,
+        "tamaño": 9.7,
         "tipo": "OLED",
         "estado": "En stock",
         "precio": 399,
@@ -32,7 +32,7 @@
     {
         "referencia": "NAV-2026-004",
         "nombre": "Sistema Multimedia Navisson BMW Serie 3 ",
-        "tamano": 8,
+        "tamaño": 8,
         "tipo": "LED",
         "estado": "Defectuosa",
         "precio": 189.95,
@@ -40,3 +40,4 @@
         "imagen": "src/navisson-BMW-serie3.png"
     }
 ]
+

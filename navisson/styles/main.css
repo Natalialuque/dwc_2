@@ -33,6 +33,11 @@ body.fondo-oscuro {
     background: #181818;
 }
 
+/* Bloquea el scroll cuando aparece el acceso */
+body.acceso-bloqueado {
+    overflow: hidden;
+}
+
 /* Hereda la fuente en controles de formulario. */
 button,
 input,
@@ -420,6 +425,60 @@ select:focus {
 /* Campo invalido tras validar*/
 .campo-invalido {
     border-color: var(--peligro);
+}
+
+/* Capa de acceso que tapa la aplicación */
+.capa-acceso {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(5, 5, 5, 0.76);
+    backdrop-filter: blur(4px);
+}
+
+/* Oculta la capa despues de iniciar sesión */
+.capa-acceso.oculto {
+    display: none;
+}
+
+/* Formulario de acceso */
+.formulario-acceso {
+    width: min(380px, 100%);
+    display: grid;
+    gap: 12px;
+    padding: 26px;
+    color: var(--gris-900);
+    background: var(--blanco);
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+}
+
+/* Logo del acceso */
+.logo-acceso {
+    width: 190px;
+    max-width: 100%;
+    justify-self: center;
+    padding: 8px 12px;
+    background: var(--blanco);
+    border: 1px solid var(--gris-100);
+    border-radius: 6px;
+}
+
+/* Titulo del acceso */
+.formulario-acceso h2 {
+    text-align: center;
+}
+
+/* Error del acceso */
+.error-acceso {
+    min-height: 20px;
+    margin: 0;
+    color: var(--peligro);
+    font-size: 0.9rem;
+    text-align: center;
 }
 
 /* Responsive para tablets y pantallas medianas*/
