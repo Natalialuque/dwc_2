@@ -1,0 +1,464 @@
+/* Variables generales */
+:root {
+    --naranja-navisson: #D49454;
+    --gris-50: #f7f7f6;
+    --gris-100: #ededeb;
+    --gris-300: #d4d4d1;
+    --gris-600: #6d6d68;
+    --gris-900: #20201f;
+    --negro: #050505;
+    --blanco: #ffffff;
+    --peligro: #b3261e;
+    --exito: #286a3f;
+    --sombra: 0 18px 45px rgba(0, 0, 0, 0.08);
+}
+
+/* Hace que padding y el borde entren dentro del ancho real. */
+* {
+    box-sizing: border-box;
+}
+
+/* base */
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--gris-900);
+    background: var(--gris-50);
+}
+
+/* Para las cokie del cambio de color */
+body.fondo-oscuro {
+    color: var(--blanco);
+    background: #181818;
+}
+
+/* Hereda la fuente en controles de formulario. */
+button,
+input,
+select {
+    font: inherit;
+}
+
+/* para tener mas espacio en el input file */
+input[type="file"] {
+    padding: 8px 10px;
+}
+
+/* cursor para botones */
+button {
+    cursor: pointer;
+}
+
+/* Cabecera principal creada desde nodos.js. */
+.cabecera-aplicacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 40px;
+    color: var(--blanco);
+    background: linear-gradient(90deg, var(--negro), #292927);
+}
+
+/* cabecera */
+.contenido-cabecera {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Logo de la marca*/
+.logo-marca {
+    width: min(220px, 42vw);
+    height: auto;
+    display: block;
+    background: var(--blanco);
+    border-radius: 6px;
+    padding: 8px 12px;
+}
+
+/* Texto pequeño naranja encima de titulos */
+.etiqueta {
+    margin: 0 0 6px;
+    color: var(--naranja-navisson);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+/* Quitamos margen por defecto a titulos. */
+h1,
+h2 {
+    margin: 0;
+    letter-spacing: 0;
+}
+
+/* Titulo principal responsive*/
+h1 {
+    font-size: clamp(1.6rem, 3vw, 2.7rem);
+    line-height: 1.05;
+}
+
+/* Titulos de secciones internas. */
+h2 {
+    font-size: 1.35rem;
+}
+
+/* Contenedores de botones */
+.acciones-cabecera,
+.acciones-formulario {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Ancho maximo de la aplicacion. */
+.contenedor-aplicacion {
+    width: min(1240px, calc(100% - 32px));
+    margin: 24px auto 48px;
+}
+
+/* Rejilla principal: formulario e inventario */
+.rejilla-trabajo {
+    display: grid;
+    grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+}
+
+/* Bloques principales de formulario e inventario. */
+.formulario-pantalla,
+.panel-inventario {
+    background: var(--blanco);
+    border: 1px solid var(--gris-100);
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+}
+
+/* Version oscura de formulario e inventario. */
+.fondo-oscuro .formulario-pantalla,
+.fondo-oscuro .panel-inventario {
+    color: var(--blanco);
+    background: #242424;
+    border-color: #3b3b3b;
+}
+
+/* Formulario fijo */
+.formulario-pantalla {
+    display: grid;
+    gap: 10px;
+    padding: 22px;
+    position: sticky;
+    top: 18px;
+}
+
+/* Panel donde se listan las pantallas */
+.panel-inventario {
+    padding: 22px;
+}
+
+/* Separacion inferior para el titulo de cada seccion. */
+.titulo-seccion {
+    margin-bottom: 8px;
+}
+
+/* Cada campo agrupa label, input/select y error. */
+.campo-formulario {
+    display: grid;
+    gap: 6px;
+}
+
+/* Labels del formulario. */
+label {
+    font-weight: 700;
+    color: inherit;
+}
+
+/* Inputs y selects basico*/
+input,
+select {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    color: var(--gris-900);
+    background: var(--gris-50);
+    border: 1px solid var(--gris-300);
+    border-radius: 6px;
+    outline: none;
+}
+
+/* Inputs y selects en modo oscuro.*/
+.fondo-oscuro input,
+.fondo-oscuro select {
+    color: var(--blanco);
+    background: #181818;
+    border-color: #555;
+}
+
+/* Resaltado al enfocar campos. */
+input:focus,
+select:focus {
+    border-color: var(--naranja-navisson);
+    box-shadow: 0 0 0 3px rgba(212, 148, 84, 0.22);
+}
+
+/* Filas dobles dentro del formulario. */
+.fila-formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* Mensajes de error de formulario.*/
+.error-campo {
+    min-height: 18px;
+    color: var(--peligro);
+    font-size: 0.78rem;
+}
+
+/* Controles de filtrado del inventario*/
+.filtros {
+    display: grid;
+    grid-template-columns: minmax(220px, 1.4fr) repeat(3, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 16px 0 10px;
+}
+
+/* Linea donde se muestran mensajes de estado*/
+.linea-estado {
+    min-height: 24px;
+    margin: 8px 0 14px;
+    color: var(--gris-600);
+}
+
+/* Texto de estado en modo oscuro*/
+.fondo-oscuro .linea-estado,
+.fondo-oscuro .referencia {
+    color: #d8d8d8;
+}
+
+/* Rejilla de tarjetas del inventario */
+.lista-pantallas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+    gap: 14px;
+}
+
+/* Tarjeta de cada pantalla */
+.tarjeta-pantalla {
+    display: grid;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid var(--gris-100);
+    border-radius: 8px;
+    background: var(--gris-50);
+}
+
+/* Tarjeta en modo oscuro*/
+.fondo-oscuro .tarjeta-pantalla {
+    background: #181818;
+    border-color: #444;
+}
+
+/* Cambio visual al pasar el raton por una tarjeta */
+.tarjeta-pantalla:hover {
+    border-color: var(--naranja-navisson);
+}
+
+/* Imagen de la pantalla dentro de la tarjeta*/
+.imagen-pantalla {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    display: block;
+    border-radius: 6px;
+    background: var(--gris-100);
+    border: 1px solid var(--gris-100);
+    padding: 8px;
+}
+
+/* Imagen modo oscuro. */
+.fondo-oscuro .imagen-pantalla {
+    background: #242424;
+    border-color: #444;
+}
+
+/* Cabecera interna de cada tarjeta */
+.tarjeta-pantalla header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Titulo de tarjeta. */
+.tarjeta-pantalla h3 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+/* Referencia de pantalla */
+.referencia {
+    margin: 3px 0 0;
+    color: var(--gris-600);
+    font-size: 0.86rem;
+}
+
+/* Insignia de estado. */
+.insignia {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    color: var(--negro);
+    background: rgba(212, 148, 84, 0.25);
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Estado en stock */
+.insignia.stock {
+    color: var(--exito);
+    background: rgba(40, 106, 63, 0.12);
+}
+
+/* Estado enviada.*/
+.insignia.enviada {
+    color: #7a4d11;
+    background: rgba(212, 148, 84, 0.22);
+}
+
+/* Estado defectuosa */
+.insignia.defectuosa {
+    color: var(--peligro);
+    background: rgba(179, 38, 30, 0.12);
+}
+
+/* Rejilla de detalles de cada tarjeta */
+.detalles-pantalla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    color: var(--gris-600);
+    font-size: 0.92rem;
+}
+
+/* Detalles en modo oscuro. */
+.fondo-oscuro .detalles-pantalla {
+    color: #d8d8d8;
+}
+
+/* Etiqueta  dentro de detalles*/
+.detalles-pantalla strong {
+    display: block;
+    color: var(--gris-900);
+}
+
+/* Etiqueta modo oscuro */
+.fondo-oscuro .detalles-pantalla strong {
+    color: var(--blanco);
+}
+
+/* Botones de cada tarjeta*/
+.acciones-tarjeta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+/* Estilo base de botones */
+.boton-principal,
+.boton-secundario,
+.boton-fantasma,
+.boton-peligro {
+    min-height: 42px;
+    border: 0;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+/* Boton principal*/
+.boton-principal {
+    color: var(--negro);
+    background: var(--naranja-navisson);
+}
+
+/* Botones de cabecera*/
+.boton-secundario {
+    color: var(--blanco);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0 14px;
+}
+
+/* Boton secundario claro*/
+.boton-fantasma {
+    color: var(--gris-900);
+    background: var(--gris-100);
+    padding: 0 12px;
+}
+
+/* Boton de eliminar*/
+.boton-peligro {
+    color: var(--blanco);
+    background: var(--peligro);
+}
+
+/* Mensaje cuando no hay pantallas que mostrar*/
+.estado-vacio {
+    padding: 36px 18px;
+    text-align: center;
+    color: var(--gris-600);
+    border: 1px dashed var(--gris-300);
+    border-radius: 8px;
+}
+
+/* Campo invalido tras validar*/
+.campo-invalido {
+    border-color: var(--peligro);
+}
+
+/* Responsive para tablets y pantallas medianas*/
+@media (max-width: 980px) {
+    /* La cabecera pasa a columnas */
+    .cabecera-aplicacion,
+    .contenido-cabecera {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    /* La rejilla principal y filtros pasan a una sola columna */
+    .rejilla-trabajo,
+    .filtros {
+        grid-template-columns: 1fr;
+    }
+
+    /* El formulario deja de ser sticky en pantallas pequenas*/
+    .formulario-pantalla {
+        position: static;
+    }
+}
+
+/* Responsive para moviles */
+@media (max-width: 560px) {
+    /* Reducimos padding de cabecera en movil */
+    .cabecera-aplicacion {
+        padding: 20px;
+    }
+
+    /* Filas y botones pasan a una columna para que no se rompan */
+    .fila-formulario,
+    .acciones-tarjeta,
+    .detalles-pantalla {
+        grid-template-columns: 1fr;
+    }
+
+    /* Botones superiores ocupan todo el ancho disponible */
+    .acciones-cabecera button {
+        width: 100%;
+    }
+}
