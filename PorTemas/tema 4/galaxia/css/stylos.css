@@ -1,0 +1,161 @@
+/* Fondo general negro */
+body {
+  margin: 0;
+  background: black;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Fondo general negro y tipografía */
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: #000;
+  font-family: Arial, sans-serif;
+  color: #eaeaea;
+}
+
+/* Layout: contenedor izquierdo flotado y lienzo derecho */
+.ContenedorIzquierda {
+  float: left;                     
+  width: 360px;                    
+  padding: 16px 16px 18px;
+  box-sizing: border-box;
+  background: #111;                
+  border-right: 2px solid #ffffff;
+  min-height: 100vh;    
+  z-index: 4;           
+}
+/* Contenedor derecho: área de visualización en negro */
+.contenedorDerecha {
+  float: left;
+  width: calc(100% - 360px);       
+  min-height: 100vh;
+  background-image: url("../src/fondo.png");               
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;   /* oculta lo que se salga */
+}
+
+.contenedorDerecha div {
+  display: flex;
+  align-items: center;    /* centra verticalmente */
+  justify-content: center;/* centra horizontalmente */
+  font-size: 12px;        /* ajusta tamaño de texto */
+  color: white;           /* contraste sobre el color del planeta */
+}
+
+/* Etiquetas */
+.ContenedorIzquierda label {
+  display: block;
+  margin: 10px 0 6px;
+  font-weight: 600;
+  color: #ddd;
+}
+
+/* Selector de color y campos de texto */
+.ContenedorIzquierda input[type="color"],
+.ContenedorIzquierda input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  background: #000000;
+  color: #eaeaea;
+  box-sizing: border-box;
+}
+
+/* Campos X e Y en línea, como en la imagen */
+#textoX,
+#textoY {
+  width: calc(50% - 6px);
+  display: inline-block;
+}
+#textoX { margin-right: 12px; }
+
+/* Radios en una fila con separación */
+.radio-group {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.radio-group label {
+  display: inline-block;
+  margin: 0;
+  font-weight: 600;
+}
+.radio-group input[type="radio"] {
+  margin-right: 6px;
+}
+
+.botonInsertar {
+  margin-top: 14px;
+  width: 100%;
+  padding: 10px 14px;
+  background: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:  0.2s ease;
+}
+
+.contenedor2 {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 2px solid #ffffff;   
+}
+.contenedor2 label {
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: #eaeaea;
+}
+
+#info {
+  font-size: 14px;
+  color: #c7c7c7;
+}
+
+.contenedorGeneral::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#color {
+   width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid #ffffff; 
+  border-radius: 4px;
+  vertical-align: middle;     
+  cursor: pointer;
+}
+
+#textoX,
+#textoY {
+  width: calc(50% - 10px);
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 6px 8px;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  background: #000000;
+  color: #eaeaea;
+  box-sizing: border-box;
+}
+
+#textoX { 
+  margin-right: 10px; 
+}
+
+.errores{
+  color: red;
+  text-align: center;
+}
+

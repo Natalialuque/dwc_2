@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Tema 3 </title>
+    <script src="main.js" defer></script>
+
+</head>
+<body>
+    <h1>Ejercicios sobre objetos nativos en JavaSacript </h1>
+       
+        <h2>EJERCICIO 1</h2>
+        <div>
+           <h3>Prueba de Clases</h3>
+            <button id="verEstudiante">Ver Estudiante</button>
+                <p id="resultadoEstudiante"></p>
+            <button id="verProfesor">Ver Profesor</button>
+                <p id="resultadoProfesor"></p>
+        </div>
+
+        <h2>EJERCICIO 2</h2> 
+        <div>
+            <h4>Ángulo</h4>
+                <h5>Longitud de la pendiente</h5>
+                <label>Longitud:</label>
+                <input id="longitud" type="number">
+                <label>Altura:</label>
+                <input id="altura" type="number">
+                <button id="calcLongitud">calcula</button>
+                <p id="resul1"></p>
+
+                <br>
+
+                <h5>Angulo de la pendiente</h5>
+                <label>x1:</label>
+                <input id="x1" type="number">
+                <label>y1:</label>
+                <input id="y1" type="number">
+                <label>x2:</label>
+                <input id="x2" type="number">
+                <label>y2:</label>
+                <input id="y2" type="number">
+                <button id="calcpendiente">calcula</button>
+                <p id="resul2"></p>
+
+                <br>
+
+                <h5>Pendiente</h5>
+                <label>Metros ascendidos:</label>
+                <input id="ascendidos" type="number">
+                <label>Metros recrridos:</label>
+                <input id="recorridos" type="number">
+                <button id="calcPendiente2">calcula</button>
+                <p id="resul13"></p>
+
+
+        </div>
+
+
+        <h2>EJERCICIO 3</h2> 
+            <div>
+                <h4>Valor de Pi con unicamente dos decimales </h4>
+                <ul>
+                    <li><p id="pi1"></p></li>
+                    <li><p id="pi2"></p></li>
+                </ul>
+            </div>
+
+
+        <h2>EJERCICIO 4</h2> 
+        <div>
+           <h4>Numeros de dias vivos</h4>
+           <label>introduce tu fecha de nacimiento</label>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+             <button id="calculaDias">Calcular</button>
+             <div id="resultadoDias"></div>
+        </div>
+
+
+
+        <h2>EJERCICIO 5</h2> 
+       
+       <div>
+        <h4>Calcular edad</h4>
+            <label for="fechaNacimiento">Introduce tu fecha de nacimiento:</label>
+             <input type="date" id="fechaNacimiento2">
+             <button id="calcularEdad">Calcular edad exacta</button>
+             <div id="resultadoEdad"></div>
+       </div>
+       
+       
+        <h2>EJERCICIO 6</h2> 
+        <div>
+            <label for="texto">Escribre recordatorio</label>
+            <br>
+            <textarea name="" id="texto" rows="10" cols="40"></textarea>
+            <br>
+            <label for="hora">Fecha:</label>
+            <input type="datetime-local" name="hora" id="hora">
+            <br>
+            <button id="recordar">Agregar</button>
+            <br>
+            <label>Lista eventos</label>
+            <p id="listaEventos"></p>
+        </div>
+
+        <h2>EJERCICIO 7</h2> 
+        <div>
+            <label for="texto">Escribe un texto con '-'</label>
+            <br>
+            <textarea name="" id="textoguion" rows="5" cols="40"></textarea>
+            <br>
+            <button id="cantidad">Calcula</button>
+            <br>
+            <label >Cantidad de - y posiciones:</label>
+            <p id="cantidadPosicion"></p>
+        </div>
+      
+        <h2>EJERCICIO 8</h2> 
+        <div>
+            <h2>Array dinámico</h2>
+
+            <input type="text" id="valor" placeholder="Valor">
+            <input type="number" id="posicion" placeholder="Posición">
+            <br>
+
+            <button onclick="insertarFinal()">Insertar al final</button>
+            <button onclick="insertarInicio()">Insertar al principio</button>
+            <button onclick="borrarPrimero()">Borrar primero</button>
+            <button onclick="borrarUltimo()">Borrar último</button>
+            <button onclick="insertarEnPosicion()">Insertar en posición</button>
+            <button onclick="eliminarEnPosicion()">Eliminar en posición</button>
+            <button onclick="ordenarAsc()">Ordenar ascendente</button>
+            <button onclick="ordenarDesc()">Ordenar descendente</button>
+
+            <p id="resultado">[ ]</p>
+        </div>
+
+    
+    <h1>Ejercicios sobre objetos: Navigator, Screen, Window,History, Document, Location. </h1>
+
+        <h2>EJERCICIO 9</h2>
+        <div>
+         <button id="mostrarRes">Mostrar resolución de la pantalla</button>
+            <p id="resRes"></p>
+         <hr>
+        </div>
+
+        <h2>EJERCICIO 10</h2> 
+        <div>
+            <button id="abrirVentana">Abrir nueva ventana</button>
+        </div>
+
+        <h2>EJERCICIO 11</h2> 
+        <div>
+        <button id="redimensiona">Abrir ventana 600 x 500</button>       
+        </div>
+        
+      <h2>EJERCICIO 12</h2> 
+        <!-- <div id="url-actual">URL actual: </div>
+        <iframe id="visor" src="https://www.example.com"></iframe>
+            <br>
+        <button id="btn-atras"> Atrás</button>
+        <button id="btn-adelante"> Adelante</button>
+         -->
+        <div>
+            <button id="atras">Volver a la anterior página</button>
+            <button id="adelante">Volver a la pagina siguiente</button>
+        </div>
+
+        
+        <h2>EJERCICIO 13</h2> 
+        <div>
+            <textarea name="area" id="texto"></textarea>
+         <button id="enviarArea1">Enviar area</button>
+        </div>
+
+    <h1>Ejercicios sobre expresiones regulares </h1>
+        <h2>EJERCICIO 14</h2> 
+        <div>
+            <input type="text" id="probarExp">
+                <button id="compExpr">Comprobar expresion</button>
+                <p id="resExp"></p>
+        </div>
+        
+        <h2>EJERCICIO 15</h2> 
+        <div>
+            <label for="texto">introduce una fecha:</label>
+            <input type="text" id="fecha">
+
+            <button id="validaFecha" >Validar Fecha</button><br>
+
+            <p id="resultadoFecha">RESULTADO:</p>
+        </div>
+        
+        <h2>EJERCICIO 16</h2>
+        <div>
+            <label for="texto">introduce un email:</label>
+            <input type="text" id="email">
+
+            <button id="validaemail" >Validar Fecha</button><br>
+
+            <p id="resultadoemail">RESULTADO:</p>
+        </div>
+        
+        <h2>EJERCICIO 17</h2>
+         <div>
+            <label for="texto">Nombre:</label>
+            <input type="text" id="nombre">
+            <label for="texto">Apellido:</label>
+            <input type="text" id="apellido">
+
+            <button id="inivierte" >Invierte</button><br>
+
+            <p id="resultadoInvertir">RESULTADO:</p>
+        </div>
+        
+        <h2>EJERCICIO 18</h2>
+        <div>
+            <label for="htmlInput">Introduce código HTML:</label>
+            <textarea id="htmlInput" rows="8">
+        <div>Contenido seguro</div>
+        <script>alert('Esto es peligroso');</script>
+        <p>Más contenido</p>
+          </textarea>
+        
+            <button id="limpiar">Eliminar &lt;script&gt;</button>
+        
+            <h3>Resultado limpio:</h3>
+            <div id="resultadohtml"></div>
+        </div>
+        
+</body>
+</html>
