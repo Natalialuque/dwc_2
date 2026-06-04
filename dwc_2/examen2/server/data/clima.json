@@ -1,0 +1,58 @@
+{
+    "estacion_meteorologica": "MAL-AGP-CENTRO",
+    "ubicacion": {
+      "ciudad": "Málaga",
+      "provincia": "Andalucía",
+      "pais": "España",
+      "coordenadas": {
+        "latitud": 36.7213,
+        "longitud": -4.4214
+      }
+    },
+    "fecha_actualizacion": "2026-02-013T10:54:00Z",
+    
+    "climatologia_actual": {
+      "temperatura_c": 18.2,
+      "sensacion_termica_c": 17.5,
+      "humedad_relativa": 58,
+      "presion_atmosferica_hpa": 1015.2,
+      "estado_cielo": "Intervalos nubosos",
+      "viento": {
+        "velocidad_kmh": 15,
+        "direccion": "Sureste",
+        "descripcion": "Brisa marina"
+      },
+      "punto_rocio_c": 9.8,
+      "visibilidad_m": 12000
+    },
+
+    "astronomia": {
+      "amanecer": "08:12",
+      "atardecer": "18:45",
+      "fase_lunar": "Gibosa Creciente"
+    },
+    
+    "alertas": [
+        {
+            "nivel": "Amarillo",
+            "tipo": "Viento",
+            "descripcion": "Rachas de poniente que pueden alcanzar los 70 km/h en zonas litorales.",
+            "inicio": "2026-02-04T12:00:00Z",
+            "fin": "2026-02-04T23:59:00Z"
+          },
+          {
+            "nivel": "Naranja",
+            "tipo": "Fenómenos Costeros",
+            "descripcion": "Oleaje de 3 a 4 metros debido al fuerte viento de Poniente.",
+            "inicio": "2026-02-04T15:00:00Z",
+            "fin": "2026-02-05T09:00:00Z"
+          },
+          {
+            "nivel": "Verde",
+            "tipo": "Lluvia",
+            "descripcion": "Sin riesgo de precipitaciones significativas.",
+            "inicio": "2026-02-04T00:00:00Z",
+            "fin": "2026-02-05T00:00:00Z"
+          }
+    ]
+  }

@@ -1,0 +1,11 @@
+La función de mi aplicación es llamar al archivo php, que lo que hace es conectarse a la api football data, mira los datos de hoy y los mete en el archivo json
+para luego conectarme al json con todos los datos y asi mostrarlos.
+
+La api, al ser gratis solo tengo 10 llamadas por minuto, si se queda pillado es por eso.
+
+Si no te funcionan los enlaces metiendo la web en htdocs, es que la he hecho desde el dominio tocando el archivo host y el vhost del xampp
+
+// IMPORTANTE: Las pruebas que he hecho desde Google Chrome la lectura de json, y actualización de partidos etc, no la hace bien, 
+desde Microsoft Edge si que se actualizan los partidos correctamente,
+
+Si el día que te metas en la web no hay partidos, se crean unos partidos ficticios para que se vea como queda la página cuando hay partidos

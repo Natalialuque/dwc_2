@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckFootball</title>
+    <link rel="icon" type="image/png" href="./recursos/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./estilos/styles.css">
+    <script src="js/main.js" type="module"></script>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a class="logo-container">
+                <img src="./recursos/logo.png" alt="Logo de CheckFootball" class="logo-img">
+                <span class="logo-text">check<span class="logo-accent">Football</span></span>
+            </a>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="dropdown"><a href="#" id="competiciones" class="nav-link">Competiciones</a></li>
+                    <li><a href="#" id="todasClasificaciones" class="nav-link">Clasificaciones</a></li>
+                    <li><a id="equipos" href="#" class="nav-link">Equipos</a></li>
+                    <li><a id="favoritos" href="#" class="nav-link">Favoritos</a></li>
+                    <li><a id="crearEquipo" href="#" class="nav-link">Crear Equipo</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#" class="btn-live">
+                    <span class="live-icon"></span>
+                    En Directo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="aviso">
+        <span>Aviso: </span> La API gratuita tiene un límite de 10 peticiones por minuto. Los datos pueden tardar en
+        actualizarse.
+    </div>
+
+    <main>
+        <h1 id="titulo">Partidos Hoy</h1>
+        <div id="partidosHoy" class="partidosHoy">
+            <aside id="clasificacion" class="seccion-clasificacion">
+                <h2>CLASIFICACIÓN</h2>
+            </aside>
+        </div>
+    </main>
+
+</body>
+
+</html>

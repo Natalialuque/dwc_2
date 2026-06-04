@@ -1,0 +1,39 @@
+{
+  "vehiculos": [
+    [
+      {
+        "id": "AC001",
+        "tipo": "Autocaravana",
+        "modelo": "Fiat Ducato Perfilada",
+        "año": 2023,
+        "plazas": {
+          "para_dormir": 4,
+          "para_viajar": 4
+        },
+        "longitud": 6.99,
+        "anchura": 2.35,
+        "altura": 2.95,
+        "peso_maximo": 3500,
+        "consumo_medio": 12,
+        "equipamiento": [
+          "Cocina completa",
+          "Nevera de 140L",
+          "Baño con ducha",
+          "Calefacción",
+          "Aire acondicionado",
+          "TV con antena",
+          "Toldo exterior",
+          "Portabicicletas",
+          "Cámara marcha atrás",
+          "Panel solar"
+        ],
+        "imagenes": [
+          "imagenes/ac001.jpg",
+          "ac001_interior1.jpg",
+          "ac001_interior2.jpg"
+        ],
+        "disponibilidad": false
+      }
+    ]
+  ]
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoUrban - Panel de Control de Incidencias</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="main.js"></script>
+
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>EcoUrban 🌿</h1>
+            <p>Portal de Gestión Ciudadana</p>
+        </div>
+        <div id="user-info">
+            <input type="text" id="login" placeholder="Introduzca nombre">
+            <input type="email" name="" id="email" placeholder="Introduzca su email">
+            <br>
+            <p id="loged-user">Usuario: Visitante</p>
+            <button id="btn-login-user" class="btn btn-primary">Login</button>
+            <button id="btn-data-user-delete" class="btn btn-warn">Dejar de recordar</button>
+            <button id="btn-logout" class="btn btn-danger">Salir</button>
+        </div>
+    </header>
+    
+    <div class="grid">
+        <section>
+            <h2>Nuevo Reporte de incidencia</h2>
+            <form id="incident-form">
+                <div class="form-group">
+                    <label for="incident-title">Asunto de la incidencia</label>
+                    <input type="text" id="incident-title" placeholder="Ej: Bache en Calle Mayor" required>
+                </div>
+                <div class="form-group">
+                    <label for="category-select">Categoría</label>
+                    <select id="category-select">
+                        <option value="">-- Seleccione categoría --</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="incident-desc">Descripción detallada</label>
+                    <textarea id="incident-desc" rows="4" placeholder="Describa el problema..."></textarea>
+                </div>
+                <button class="btn btn-primary">Enviar Reporte de incidencia</button>
+            </form>
+        </section>
+    
+        <section>
+            <h2>Información de la Ciudad</h2>
+            <div class="form-group">
+                <button id="load-weather" class="btn btn-secondary">Actualizar Clima</button>
+                <button id="load-terms" class="btn btn-secondary">Ver Normativa</button>
+            </div>
+            <div id="info-display" class="display-area">Esperando datos...</div>
+            
+            <h3>Historial Local de incidencias</h3>
+            <ul id="history-list">
+                </ul>
+        </section>
+    
+        <section>
+            <h2>Persistencia y Sesión</h2>
+            <p>Estado de la sesión: <span id="session-status" class="status-badge">Desconectado</span></p>
+            <div class="form-group">
+                <label for="username-input">Nombre para la Cookie:</label>
+                <input type="text" id="username-input" style="width: 60%;">
+                <button id="btn-save-user" class="btn btn-primary">Guardar</button>
+            </div>
+            <button id="btn-clear-storage" class="btn btn-danger">Borrar Todo</button>
+        </section>
+    
+        <section>
+            <h2>Respuesta del Servidor</h2>
+            <div id="server-log" class="display-area">Sin actividad...</div>
+        </section>
+    </div>
+    </body>
+    </html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servicios_municipales ciudad="EcoUrban" version="2.1">
+    
+    <categoria id="L01" urgencia="alta" departamento="Alumbrado">
+        Farola fundida o dañada
+    </categoria>
+    <categoria id="L02" urgencia="media" departamento="Alumbrado">
+        Iluminación insuficiente en parque
+    </categoria>
+    <categoria id="P20" urgencia="alta" departamento="Obras Públicas">
+        Bache o socavón en calzada
+    </categoria>
+    <categoria id="P21" urgencia="baja" departamento="Obras Públicas">
+        Acera en mal estado o baldosa suelta
+    </categoria>
+    <categoria id="S30" urgencia="alta" departamento="Limpieza y Residuos">
+        Contenedor de basura desbordado
+    </categoria>
+    <categoria id="S31" urgencia="media" departamento="Limpieza y Residuos">
+        Acumulación de escombros no autorizada
+    </categoria>
+    <categoria id="V40" urgencia="media" departamento="Medio Ambiente">
+        Árbol con riesgo de caída de ramas
+    </categoria>
+    <categoria id="V41" urgencia="baja" departamento="Medio Ambiente">
+        Falta de riego en zona ajardinada
+    </categoria>
+    <categoria id="M50" urgencia="baja" departamento="Mobiliario Urbano">
+        Banco o papelera rota
+    </categoria>
+    <categoria id="M51" urgencia="media" departamento="Mobiliario Urbano">
+        Pintadas o grafitis en monumento
+    </categoria>
+    <categoria id="A60" urgencia="alta" departamento="Aguas">
+        Fuga de agua o rotura de tubería
+    </categoria>
+</servicios_municipales>
