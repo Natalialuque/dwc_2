@@ -10,6 +10,7 @@ const login = document.getElementById("login");
  const email = document.getElementById("email");
 
  const HAY_LOGIN = CookieUtils.existeCookie("login")
+ 
 const HAY_EMAIL = CookieUtils.existeCookie("email")
 
 //esto escribe la cookie si la hay

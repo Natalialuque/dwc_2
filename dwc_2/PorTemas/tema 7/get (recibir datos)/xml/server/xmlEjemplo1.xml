@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mensajes>
+    <mensaje>
+        <de>Antonio</de>
+        <para>Lucía</para>
+        <dia>5 Marzo</dia>
+        <hora>12:34</hora>
+        <texto>Hola, ¿qué haces hoy?</texto>
+    </mensaje>
+<mensaje>
+<de>Lucía</de>
+<para>Antonio</para>
+<dia>5 Marzo</dia>
+<hora>12:40</hora>
+<texto>Pues tengo lio. Mañana tengo examen de programación</texto>
+</mensaje>
+<mensaje>
+<de>Antonio</de>
+<para>Lucía</para>
+<dia>5 Marzo</dia>
+<hora>12:43</hora>
+<texto>Vayaaa!!! Entonces de tomar algo ni hablamos, ¿no?</texto>
+</mensaje>
+<mensaje>
+<de>Lucía</de>
+<para>Antonio</para>
+<dia>5 Marzo</dia>
+<hora>12:50</hora>
+<texto>¡Qué va! Otro día mejor</texto>
+</mensaje>
+<mensaje>
+<de>Antonio</de>
+<para>Lucía</para>
+<dia>5 Marzo</dia>
+<hora>12:53</hora>
+<texto>OK! Suerte para el examen.</texto>
+</mensaje>
+<mensaje>
+<de>Manuel</de>
+<para>Estefanía</para>
+<dia>5 Marzo</dia>
+<hora>13:53</hora>
+<texto>Reunión de departamento a las 17h.</texto>
+</mensaje>
+<mensaje>
+<de>Estefanía</de>
+<para>Manuel</para>
+<dia>5 Marzo</dia>
+<hora>13:53</hora>
+<texto>OK! Café a las 16:30?</texto>
+</mensaje>
+<mensaje>
+<de>Manuel</de>
+<para>Estefanía</para>
+<dia>5 Marzo</dia>
+<hora>13:59</hora>
+<texto>Vale, invitas tú.</texto>
+</mensaje>
+<mensaje>
+<de>Lucía</de>
+<para>Estefanía</para>
+<dia>5 Marzo</dia>
+<hora>14:30</hora>
+<texto>Me apunto al café yo también</texto>
+</mensaje>
+<mensaje>
+<de>Lucía</de>
+<para>Estefanía</para>
+<dia>10 Marzo</dia>
+<hora>14:30</hora>
+<texto>TENasdfasdfasdfasdfasdfasd</texto>
+</mensaje>
+</mensajes>

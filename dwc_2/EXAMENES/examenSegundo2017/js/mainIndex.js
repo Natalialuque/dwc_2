@@ -148,6 +148,7 @@ function nuevoEmpleado(){
 
         let valido = true;
 
+        //para hacer el cambio de color de los inputs 
         inputs.forEach(input => {
             if (input.value.trim() === "") {
                 input.style.border = "2px solid red";
@@ -157,36 +158,41 @@ function nuevoEmpleado(){
             }
         });
 
+        //mensaje de error 
         if (!valido) {
             mensajes.textContent = "Rellena todos los campos obligatorios";
             return;
         }
 
         // Crear XML
-         let nombre = document.getElementById("nombre").value.trim();
-        let apellidos = document.getElementById("apellidos").value.trim();
+        let nombre = document.getElementById("nombre").value.trim();
+        let apellidos = document.getElementById("apellidos" ).value.trim();
         let direccion = document.getElementById("direccion").value.trim();
         let email = document.getElementById("email").value.trim();
 
-        let xml = 
-            "<empleado>" +
-                "<nombre>" + nombre + "</nombre>" +
-                "<apellidos>" + apellidos + "</apellidos>" +
-                "<direc>" + direccion + "</direc>" +
-                "<email>" + email + "</email>" +
-            "</empleado>";
+       let xml = 
+        "<empleado>" +
+            "<nombre>" + nombre + "</nombre>" +
+            "<apellidos>" + apellidos + "</apellidos>" +
+            "<direc>" + direccion + "</direc>" +
+            "<email>" + email + "</email>" +
+        "</empleado>";
 
-        //este xml tenemos que enviarlo al php que tenemos 
-        let xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                mensajes.textContent = "Servidor: " + xhr.responseText;
-            }
-        };
+        fetch("php/nuevoUser.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "datos=" + encodeURIComponent(xml)
+        })
+        .then(res => res.text())
+        .then(respuesta => {
+            mensajes.textContent = "Servidor: " + respuesta;
+        })
+        .catch(err => {
+            mensajes.textContent = "Error enviando XML";
+        });
 
-        xhr.open("POST", "php/nuevoUser.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send("datos=" + encodeURIComponent(xml));
     }
 
 }

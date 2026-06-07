@@ -1,0 +1,36 @@
+=====================================================
+    NORMATIVA DE USO DEL PORTAL ECOURBAN v1.2
+=====================================================
+
+1. OBJETO DE LA PLATAFORMA
+EcoUrban es una herramienta digital destinada a facilitar la 
+comunicación entre el ciudadano y los servicios municipales 
+para el reporte de incidencias en la vía pública.
+
+2. USO DE DATOS Y PRIVACIDAD (GDPR)
+Al utilizar este portal, el usuario acepta el almacenamiento 
+de su nombre y preferencias mediante:
+- Cookies técnicas para el mantenimiento de la sesión.
+- LocalStorage para el histórico personal de reportes.
+El Ayuntamiento no cederá estos datos a terceros bajo ningún 
+concepto.
+
+3. RESPONSABILIDAD DEL CIUDADANO
+El usuario se compromete a:
+- Aportar descripciones veraces y constructivas.
+- No utilizar lenguaje ofensivo en las descripciones.
+- No realizar reportes duplicados de una misma incidencia.
+
+4. GESTIÓN DE INCIDENCIAS
+La recepción de un reporte no implica su reparación inmediata. 
+Los servicios municipales priorizarán las actuaciones según:
+- Gravedad del desperfecto.
+- Riesgo para la seguridad vial o peatonal.
+- Disponibilidad de recursos técnicos.
+
+5. CONTACTO TÉCNICO
+Para problemas con el funcionamiento de la web, contacte con 
+el soporte técnico de EcoUrban en soporte@ecourban.gob.es
+
+-----------------------------------------------------
+© 2026 - Departamento de Digitalización Urbana.

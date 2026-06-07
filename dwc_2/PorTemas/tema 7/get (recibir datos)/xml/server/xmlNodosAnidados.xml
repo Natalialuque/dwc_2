@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<empleados>
+<empleado>
+    <direccion>
+        <calle>Mayor</calle>
+        <numero>5</numero>
+    </direccion>
+</empleado>
+<empleado>
+    <direccion>
+        <calle>Menor</calle>
+        <numero>4</numero>
+    </direccion>
+</empleado>
+</empleados>
