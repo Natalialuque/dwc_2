@@ -18,5 +18,5 @@ function borrarSession(clave) {
     sessionStorage.removeItem(clave);
 }
 
-
+//esto es nos sirve para exportar mi clase 
 export const SessionUtils = { setSession, getSession, existeSession ,borrarSession}
