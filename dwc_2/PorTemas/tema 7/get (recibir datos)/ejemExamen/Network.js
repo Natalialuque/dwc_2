@@ -7,7 +7,6 @@ leerPhp(respuesta){
     .then(res => res.json()) 
     .then(dato => {
 
-        
     // dato es un ARRAY de objetos con objetos
             let texto = "";
 
@@ -16,15 +15,11 @@ leerPhp(respuesta){
             }
 
             respuesta.textContent = "empresa. "+dato.empresa +" Ciudad: " +dato.ciudad+" Empleados: "+texto;      
-
     })
     .catch(err=>{
         respuesta.textContent="ERROR AL LEER PHP";
     });
 
-
-}
-
-
+    }
 
 }
