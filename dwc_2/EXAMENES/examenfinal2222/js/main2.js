@@ -118,6 +118,7 @@ registro.onclick=function(){
 
 
         }else{
+            //en caso de querer validar en el momento y desactivar el boton 
             botonEnviar.disabled = true;
             mensajeLogin.textContent="Error datos mal";
         }
