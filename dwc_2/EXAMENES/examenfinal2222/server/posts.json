@@ -1,0 +1,176 @@
+﻿{
+	"estado": 0,
+	"total": 12,
+	"ruta_base": "",
+	"posts": [
+		{
+			"usuario": {
+				"nombre": "manu99",
+				"img": "user03.jpg"
+			},
+			"post": {
+				"fecha": "3-3-2016",
+				"hora": "12:25:51",
+				"texto": "En el bar",
+				"img": "descarga01.jpg",
+				"likes": 3,
+				"comentarios": [{"usuario": "angie21", "texto": "Genial!"},{"usuario": "manu99", "texto": "Gracias"}]
+			}
+		},
+		{
+			"usuario": {
+				"nombre": "luis_loko",
+				"img": "user04.jpg"
+			},
+			"post": {
+				"fecha": "3-3-2016",
+				"hora": "12:26:07",
+				"texto": "Por la noche en la ciudad...",
+				"img": "descarga02.jpg",
+				"likes": 5,
+				"comentarios": [{"usuario": "el_notas", "texto": "Una pasada de foto"},{"usuario": "manu99", "texto": "Lo mismo digo"},{"usuario": "lukeSKWLR", "texto": "Es muy chula"},{"usuario": "luis_loko", "texto": "Gracias a todos"}]
+			}
+		},
+		{
+			"usuario": {
+				"nombre": "angie21",
+				"img": "user01.jpg"
+			},
+			"post": {
+				"fecha": "3-3-2016",
+				"hora": "18:00:34",
+				"texto": "My Girl",
+				"img": "descarga03.jpg",
+				"likes": 1,
+				"comentarios": [{"usuario": "maria_de_la_oooo", "texto": "Me gusta mucho"}]
+			}
+		},
+		{
+			"usuario": {
+				"nombre": "el_notas",
+				"img": "user05.jpg"
+			},
+			"post": {
+				"fecha": "3-3-2016",
+				"hora": "20:36:21",
+				"texto": "Familia en bici",
+				"img": "descarga04.jpg",
+				"likes": 7,
+				"comentarios": []
+			}
+		},
+		{
+			"usuario": {
+				"nombre": "lukeSKWLR",
+				"img": "user07.jpg"
+			},
+			"post": {
+				"fecha": "4-3-2016",
+				"hora": "00:04:07",
+				"texto": "Zambullida",
+				"img": "descarga05.jpg",
+				"likes": 21,
+				"comentarios": [{"usuario": "manu99", "texto": "Refrescante!"},{"usuario": "aNGeLa", "texto": "Eres tu?"},{"usuario": "lukeSKWLR", "texto": "Sí, soy yo. XDDD"}]
+			}
+		},
+		{
+			"usuario": {
+				"nombre": "mateooo",
+				"img": "user10.jpg"
+			},
+			"post": {
+				"fecha": "4-3-2016",
+				"hora": "08:08:08",
+				"texto": "Big Eyes",
+				"img": "descarga06.jpg",
+				"likes": 4,
+				"comentarios": [{"usuario": "admin01", "texto": "Guay!"},{"usuario": "angie21", "texto": "Es preciosa"},{"usuario": "maria_de_la_oooo", "texto": "Ya lo creo. Genial."},{"usuario": "ObiWanKNB", "texto": ";)"},{"usuario": "lukeSKWLR", "texto": "Muy bonita foto."}]
+			}
+		},
+		{
+			"usuario": {
+				"nombre": "lukeSKWLR",
+				"img": "user07.jpg"
+			},
+			"post": {
+				"fecha": "5-3-2016",
+				"hora": "00:00:01",
+				"texto": "Patada voladora!!",
+				"img": "descarga07.jpg",
+				"likes": 12,
+				"comentarios": [{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""}]
+			}
+		},
+		{
+			"usuario": {
+				"nombre": "admin01",
+				"img": "user08.jpg"
+			},
+			"post": {
+				"fecha": "5-3-2016",
+				"hora": "14:43:33",
+				"texto": "",
+				"img": "descarga08.jpg",
+				"likes": 2,
+				"comentarios": [{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""}]
+			}
+		},
+		{
+			"usuario": {
+				"nombre": "maria_de_la_oooo",
+				"img": "user02.jpg"
+			},
+			"post": {
+				"fecha": "5-3-2016",
+				"hora": "19:16:21",
+				"texto": "Abstract",
+				"img": "descarga09.jpg",
+				"likes": 3,
+				"comentarios": [{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""}]
+			}
+		},
+		{
+			"usuario": {
+				"nombre": "aNGeLa",
+				"img": "user06.jpg"
+			},
+			"post": {
+				"fecha": "5-3-2016",
+				"hora": "23:25:27",
+				"texto": "Contraluz",
+				"img": "descarga10.jpg",
+				"likes": 8,
+				"comentarios": [{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""}]
+			}
+		},
+		{
+			"usuario": {
+				"nombre": "admin01",
+				"img": "user08.jpg"
+			},
+			"post": {
+				"fecha": "6-3-2016",
+				"hora": "02:55:34",
+				"texto": "Mas triste es robar",
+				"img": "descarga11.jpg",
+				"likes": 14,
+				"comentarios": [{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""}]
+			}
+		},
+		{
+			"usuario": {
+				"nombre": "ObiWanKNB",
+				"img": "user09.jpg"
+			},
+			"post": {
+				"fecha": "6-3-2016",
+				"hora": "12:55:22",
+				"texto": "Gota",
+				"img": "descarga12.jpg",
+				"likes": 17,
+				"comentarios": [{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""},{"usuario": "", "texto": ""}]
+			}
+		}
+	]
+
+}

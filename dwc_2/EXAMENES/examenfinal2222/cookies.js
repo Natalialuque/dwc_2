@@ -1,7 +1,6 @@
 //serie de funciones para controlar todo el tema de las cookies 
 
 //crear cookie 
-//recuerda que las cookies de fecha tienen que ir en formato 2026-05-30
 function setCookie(nombre, valor, dias = null, fecha = null, path = "/", secure = false, samesite = "Lax") {
   let extras = "";
 

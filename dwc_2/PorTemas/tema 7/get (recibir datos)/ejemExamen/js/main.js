@@ -1,8 +1,9 @@
-import { Network } from "../Network.js";
+//import { Network } from "../Network.js";
+import {leerPhp} from "../Network.js"
 
 let boton = document.getElementById("boton");
 let respuesta = document.getElementById("respuesta");
-const net = new Network();
+//const net = new Network();
 
 // boton.onclick=function(){
 //     console.log("hola");
@@ -15,5 +16,5 @@ res.id="respuesta";
 document.body.appendChild(res);
 
 boton.onclick=function(){
-    net.leerPhp(res);
+    leerPhp(res);
 }
